@@ -13,9 +13,9 @@ const api_names = "https://api.namefake.com/";
 //     });
 
 
-axios.get(api_names).then(response => {
-    console.log(response.data);
-});
+// axios.get(api_names).then(response => {
+//     console.log(response.data);
+// });
 
 
 export const get_random_name = async () =>

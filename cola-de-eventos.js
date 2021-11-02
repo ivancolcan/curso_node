@@ -1,6 +1,6 @@
 
 
-function sumarSync(a, b) {
+export function sumarSync(a, b) {
     let result = 0;
     for (let i = 0; i < 100000000; i++) {
         result = a + b;
@@ -8,7 +8,7 @@ function sumarSync(a, b) {
     return result;
 }
 
-async function sumarAsync(a, b) {
+export async function sumarAsync(a, b) {
     return sumarSync(a, b);
 }
 
@@ -29,9 +29,4 @@ sumarAsync(2, 4).then(console.log);
 
 console.timeEnd("async");
 
-
-exports.suma = {
-    sumarAsync,
-    sumarSync
-};
 
