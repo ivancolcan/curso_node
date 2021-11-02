@@ -1,0 +1,29 @@
+{
+  "name": "curso-nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "cola-de-eventos.js",
+  "scripts": {
+    "cola": "node cola-de-eventos"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lemaguilera/curso_node.git"
+  },
+  "keywords": [],
+  "author": "Luis Marin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lemaguilera/curso_node/issues"
+  },
+  "homepage": "https://github.com/lemaguilera/curso_node#readme",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "jsdom": "^18.0.1",
+    "node-fetch": "^3.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.14"
+  },
+  "type": "module"
+}

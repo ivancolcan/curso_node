@@ -8,8 +8,8 @@ function sumarSync(a, b) {
     return result;
 }
 
-async function sumarAsync(a,b){
-    return sumarSync(a,b);
+async function sumarAsync(a, b) {
+    return sumarSync(a, b);
 }
 
 console.time("sync");
@@ -23,14 +23,15 @@ console.timeEnd("sync");
 
 console.time("async");
 
-sumarAsync(2,2).then(console.log);
-sumarAsync(2,3).then(console.log);
-sumarAsync(2,4).then(console.log);
+sumarAsync(2, 2).then(console.log);
+sumarAsync(2, 3).then(console.log);
+sumarAsync(2, 4).then(console.log);
 
 console.timeEnd("async");
 
 
-
-
-
+exports.suma = {
+    sumarAsync,
+    sumarSync
+};
 
