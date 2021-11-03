@@ -7,10 +7,20 @@
     <title>Sockets</title>
   </head>
   <body>
-
+    <h1>Sockets</h1>
     <script>
-        
-    </script>
 
+      const socket = new WebSocket("ws://localhost:3000");
+
+      socket.addEventListener("open", function (event) {
+        console.log("open", event);
+      });
+
+      socket.addEventListener("message", function (event) {
+        console.log("message", event.data);
+      });
+
+      
+    </script>
   </body>
 </html>

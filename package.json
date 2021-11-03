@@ -6,7 +6,8 @@
   "scripts": {
     "cola": "node clase1/cola-de-eventos",
     "nombres": "node clase2/nombres-falsos",
-    "dev": "nodemon clase2/express.js"
+    "dev": "nodemon clase2/express.js",
+    "sockets": "nodemon clase2/sockets.js"
   },
   "repository": {
     "type": "git",
@@ -29,7 +30,6 @@
   },
   "type": "module",
   "devDependencies": {
-    "@types/socket.io": "^3.0.2",
     "nodemon": "^2.0.14"
   }
 }

@@ -1,22 +1,33 @@
 import express from "express";
 import http from "http";
-import soketio from "socket.io";
+import { Server } from "socket.io";
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
 
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 const app = express();
 const server = http.createServer(app);
-const io = soketio(server);
+const io = new Server(server);
 
-
+const sockets = [];
 
 io.on("connection", (socket) => {
 
-    // setInterval(() => {
-    //     socket
-    // },3e3);
-    
+    sockets.push(socket.id);
+    console.log(sockets);
+
+    socket.emit("conectado", "ok...")
 
 });
 
 
+
 server.listen(3000);
+
+
+app.use(express.static(join(__dirname)));
+
+app.listen(8080);
+

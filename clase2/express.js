@@ -1,20 +1,15 @@
 import express from "express";
 import faker from "faker";
 
+const app = express();
 
 
 const getUser = (name) => {
-
     return {
         nombre: name ? name : faker.name.findName(),
         area: faker.name.jobArea()
     };
 };
-
-
-
-
-const app = express();
 
 app.get("/", (_req, res) => {
     res
