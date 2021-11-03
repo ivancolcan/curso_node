@@ -1,5 +1,11 @@
 import express from "express";
 import redis from "redis";
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
+
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 
 const client = redis.createClient();
@@ -53,9 +59,13 @@ app.get("/user", (req, res) => {
 
 });
 
-app.delete("/user", (req, res) => {
-
+app.delete("/user/:name", (req, res) => {
+    const { name } = req.params;
+    client.del(name, (_err, response) => {
+        console.log({ deleted: response });
+        res.sendStatus(200);
+    });
 });
 
-
+app.use(express.static(join(__dirname)));
 app.listen(8080);

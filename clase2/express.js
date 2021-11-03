@@ -25,8 +25,6 @@ app.get("/user", (req, res) => {
     );
 });
 
-// /user/luis
-// /user/pedro
 app.get("/user/:nombre", (req, res) => {
     res.json(
         getUser(req.params.nombre)
