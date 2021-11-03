@@ -7,7 +7,8 @@
     "cola": "node clase1/cola-de-eventos",
     "nombres": "node clase2/nombres-falsos",
     "dev": "nodemon clase2/express.js",
-    "sockets": "nodemon clase2/sockets.js"
+    "sockets": "nodemon clase2/sockets.js",
+    "redis": "nodemon clase2/redis.js"
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,7 @@
     "faker": "^5.5.3",
     "jsdom": "^18.0.1",
     "node-fetch": "^3.0.0",
+    "redis": "^3.1.2",
     "socket.io": "^4.3.1"
   },
   "type": "module",

@@ -4,3 +4,15 @@
 
 [redis para WSL](https://redis.io/download)
 
+- Iniciar servidor de Redis en WSL (Ubuntu)
+
+```bash
+redis-server
+```
+
+en otra terminal probar que funciona el servidor de redis
+
+```bash
+redis-cli ping
+```
+
