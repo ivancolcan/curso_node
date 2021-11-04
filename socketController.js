@@ -14,7 +14,16 @@ const socketController = (parent) => (socket) => {
 
     parent.emitUsers();
 
+    socket.on("user-updated", (user) => {
+        const { id, name } = user;
 
+        parent.users = parent.users.map(u => {
+            if (u === id) return name;
+            return u;
+        });
+
+        parent.emitUsers();
+    });
 
     socket.on("disconnect", () => {
         console.log("cliente desconectado", socket.id);

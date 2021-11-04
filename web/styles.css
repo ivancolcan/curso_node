@@ -21,6 +21,10 @@ body {
   overflow-y: scroll;
 }
 
+h1 {
+  width: 90%;
+}
+
 .users {
   overflow-y: scroll;
   width: 100px;

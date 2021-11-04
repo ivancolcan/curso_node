@@ -1,15 +1,33 @@
 window.addEventListener('DOMContentLoaded', (event) => {
 
-    const sendButton = document.querySelector(".user-box button");
+    const socket = io();
+    const sendButton = document.querySelector(".user-box button.send");
+    const aliasButton = document.querySelector(".user-box button.alias");
     const message = document.querySelector(".user-box textarea");
     const globalChat = document.querySelector(".global-chat");
     const userList = document.querySelector(".users");
     const me = document.querySelector("#me");
+    const username = document.querySelector("#usuario");
     const user = {
-        id: ""
+        id: "",
+        name: ""
     };
 
     let selectedUsers = [];
+
+
+    const updateUserName = (name) => {
+        if (!name) name = username.value;
+        user.name = name;
+        me.innerHTML = name;
+        if (username.value !== name) username.value = name;
+        socket.emit("user-updated", user);
+    };
+
+    aliasButton.addEventListener("click", () => {
+        const name = username.value;
+        updateUserName(name);
+    });
 
 
     const agregarMensajeGlobal = (msg) => {
@@ -45,7 +63,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 
 
-    const socket = io();
+
+
 
     socket.on("connect", () => {
         console.log("Cliente conectado");
@@ -58,7 +77,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
     socket.on("tu-id", (id) => {
         console.log("saludo:", id);
         user.id = id;
-        me.innerHTML = id;
+
+        if (user.name === "") updateUserName(id);
+
     });
 
     // socket.on("reload", location.reload());
