@@ -1,15 +1,11 @@
 {
   "name": "curso-nodejs",
   "version": "1.0.0",
-  "description": "",
-  "main": "cola-de-eventos.js",
+  "description": "[Temario](https://docs.google.com/presentation/d/1vRkyhw8AexTY_ie31c2whJZoHKmGFvXvzLzHroAfBO8/edit?usp=sharing)",
+  "main": "index.js",
   "scripts": {
-    "start": "node clase2/express.js",
-    "cola": "node clase1/cola-de-eventos",
-    "nombres": "node clase2/nombres-falsos",
-    "dev": "nodemon clase2/express.js",
-    "sockets": "nodemon clase2/sockets.js",
-    "redis": "nodemon clase2/redis.js"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -23,19 +19,9 @@
   },
   "homepage": "https://github.com/lemaguilera/curso_node#readme",
   "dependencies": {
-    "axios": "^0.24.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
-    "faker": "^5.5.3",
-    "jsdom": "^18.0.1",
-    "node-fetch": "^3.0.0",
-    "redis": "^3.1.2",
+    "nodemon": "^2.0.14",
     "socket.io": "^4.3.1"
-  },
-  "type": "module",
-  "devDependencies": {
-    "nodemon": "^2.0.14"
-  },
-  "engines": {
-    "node": "16.13.0"
   }
 }

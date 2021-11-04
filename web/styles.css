@@ -1,0 +1,47 @@
+html,
+body {
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  height: 100vh;
+  width: 600px;
+}
+
+.global-chat {
+  width: 300px;
+  height: 200px;
+  border: 2px solid #555;
+  overflow-y: scroll;
+}
+
+.users {
+  overflow-y: scroll;
+  width: 100px;
+  height: 200px;
+  border: 2px solid #555;
+}
+
+.user {
+  background: #ddd;
+  color: #333;
+  border: none;
+  border-radius: 5px;
+  margin: 2px;
+  padding: 2px;
+  cursor: pointer;
+}
+
+.user.selected {
+  background: #5f59;
+}
+
+.user-box {
+  width: 300px;
+}
