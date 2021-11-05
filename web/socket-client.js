@@ -1,12 +1,20 @@
 window.addEventListener('DOMContentLoaded', (event) => {
 
-    const sendButton = document.querySelector(".user-box button");
-    const message = document.querySelector(".user-box textarea");
+    const btEnviarNombreUsuario = document.querySelector("#btEnviarNombreUsuario");
+    const usuario = document.querySelector("#usuario");
+    const divNombreUsuario = document.querySelector("#divNombreUsuario");
+
+    const divChat = document.querySelector("#divChat");
+    const sendButton = document.querySelector("#btEnviarMensaje");
+    const message = document.querySelector("#mensaje");
     const globalChat = document.querySelector(".global-chat");
     const userList = document.querySelector(".users");
     const me = document.querySelector("#me");
+    const usuariosConectados = document.querySelector("#usuariosConectados");
+    const btCambiarNombreUsuario = document.querySelector("#btCambiarNombreUsuario");
     const user = {
-        id: ""
+        id: "",
+        name:""
     };
 
     let selectedUsers = [];
@@ -19,26 +27,27 @@ window.addEventListener('DOMContentLoaded', (event) => {
         div.scrollIntoView();
     };
 
-    const agregarUsuario = (name) => {
+    const agregarUsuario = (usuario) => {
         const div = document.createElement("div");
         div.classList.add("user");
-        div.innerHTML = name.slice(0, 8);
+        div.innerHTML = usuario.name;
         userList.appendChild(div);
 
-        const user = {
+        const userSelected = {
             selected: false,
-            id: name
+            id: usuario.id,
+            name: usuario.name
         };
 
         div.addEventListener("click", () => {
-            if (user.selected) {
+            if (userSelected.selected) {
                 div.classList.remove("selected");
-                selectedUsers = selectedUsers.filter(id => id !== user.id);
+                selectedUsers = selectedUsers.filter(u => u.id !== userSelected.id);
             } else {
                 div.classList.add("selected");
-                selectedUsers.push(user.id);
+                selectedUsers.push(userSelected);
             }
-            user.selected = !user.selected;
+            userSelected.selected = !userSelected.selected;
         });
 
     };
@@ -58,7 +67,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     socket.on("tu-id", (id) => {
         console.log("saludo:", id);
         user.id = id;
-        me.innerHTML = id;
+        //me.innerHTML = id;
     });
 
     // socket.on("reload", location.reload());
@@ -69,8 +78,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
     socket.on("users", (users) => {
         userList.innerHTML = "";
-        for (const user of users) {
-            agregarUsuario(user);
+        usuariosConectados.innerHTML = users.length-1;
+        for (const u of users) {
+            if (u.id !== user.id) {
+                agregarUsuario(u);
+            }
         }
     });
 
@@ -83,7 +95,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
             selectedUsers
         };
 
-
+        message.value = "";
         socket.emit("mensaje", payload, (res) => {
             agregarMensajeGlobal(res);
         });
@@ -91,12 +103,28 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
     });
 
+    btEnviarNombreUsuario.addEventListener("click", () => {
 
 
+        const payload = {
+            name: usuario.value
+        };
 
+        socket.emit("username", payload);
 
+        me.innerHTML = usuario.value;
 
+        divNombreUsuario.style.display = "none";
+        divChat.style.display = "block";
 
+    });
+
+    btCambiarNombreUsuario.addEventListener("click", () => {
+
+        divNombreUsuario.style.display = "block";
+        divChat.style.display = "none";
+
+    });
 
 
 
