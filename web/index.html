@@ -26,7 +26,7 @@
 
       <div class="row mb-3">
         <div class="col-8">
-          <h5>Chat</h5>
+          <h5>Chat <button class="btn-sm btn-outline-secondary" onclick="document.querySelector('.global-chat').innerHTML = ''">Limpiar</button></h5>
           <div class="global-chat p-2" style="text-align: left;"></div>
         </div>
 
@@ -37,9 +37,8 @@
 
           <div class="user-box">
             <div class="mb-1">
-              <textarea id="mensaje" rows="3" placeholder="Escribe..." class="form-control"></textarea>
+              <textarea id="mensaje" rows="3" placeholder="Escribe... Nueva línea(ctrl+enter)" class="form-control" onkeypress="controlEnter(event)"></textarea>
             </div>
-            <button class="btn btn-secondary" onclick="document.querySelector('.global-chat').innerHTML = ''">Limpiar</button>
             <button id="btEnviarMensaje" class="btn btn-primary">Enviar</button>
           </div>
           

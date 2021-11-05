@@ -104,6 +104,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
     });
 
     btEnviarNombreUsuario.addEventListener("click", () => {
+		
+		if (usuario.value === '') {
+			alert("Error: Nombre de usuario vacío.");
+			return;
+		}
 
 
         const payload = {
@@ -129,6 +134,18 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 
 });
+
+function controlEnter(event) {
+	//if (event.ctrlKey && event.keyCode === 13) { document.querySelector('#btEnviarMensaje').click() }
+	//debugger;
+	if (event.keyCode === 13) {
+		document.querySelector('#btEnviarMensaje').click();
+		event.preventDefault();
+	} else if (event.ctrlKey && event.keyCode === 13  || event.keyCode == 10) {
+		let message = document.querySelector("#mensaje");
+		message.value += "\n";
+	}
+}
 
 
 
