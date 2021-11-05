@@ -1,0 +1,24 @@
+{
+   "type": "postgres",
+   "database": "daju6hf58oa23r",
+   "host": "ec2-34-202-66-20.compute-1.amazonaws.com",
+   "port": 5432,
+   "username": "ngmdnhobikrvkl",
+   "password": "71a2cdd32a38f544eab29ac25982b87864f46a7e5fd7a6d36f96a803ad9bb296",
+   "synchronize": true,
+   "logging": false,
+   "entities": [
+      "src/entity/**/*.ts"
+   ],
+   "migrations": [
+      "src/migration/**/*.ts"
+   ],
+   "subscribers": [
+      "src/subscriber/**/*.ts"
+   ],
+   "cli": {
+      "entitiesDir": "src/entity",
+      "migrationsDir": "src/migration",
+      "subscribersDir": "src/subscriber"
+   }
+}

@@ -1,18 +1,7 @@
+# Awesome Project Build with TypeORM
 
+Steps to run this project:
 
-[Temario](https://docs.google.com/presentation/d/1vRkyhw8AexTY_ie31c2whJZoHKmGFvXvzLzHroAfBO8/edit?usp=sharing)
-
-[redis para WSL](https://redis.io/download)
-
-- Iniciar servidor de Redis en WSL (Ubuntu)
-
-```bash
-redis-server
-```
-
-en otra terminal probar que funciona el servidor de redis
-
-```bash
-redis-cli ping
-```
-
+1. Run `npm i` command
+2. Setup database settings inside `ormconfig.json` file
+3. Run `npm start` command
